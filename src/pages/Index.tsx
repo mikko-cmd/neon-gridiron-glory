@@ -1,12 +1,33 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import { LandingPage } from "./LandingPage";
+import { PlayerStatsPage } from "./PlayerStatsPage";
+import { PlayersListPage } from "./PlayersListPage";
+
+type Page = "landing" | "stats" | "players";
 
 const Index = () => {
+  const [currentPage, setCurrentPage] = useState<Page>("landing");
+
+  const navigateToPage = (page: string) => {
+    setCurrentPage(page as Page);
+  };
+
+  const renderPage = () => {
+    switch (currentPage) {
+      case "landing":
+        return <LandingPage onNavigate={navigateToPage} />;
+      case "stats":
+        return <PlayerStatsPage onNavigate={navigateToPage} />;
+      case "players":
+        return <PlayersListPage onNavigate={navigateToPage} />;
+      default:
+        return <LandingPage onNavigate={navigateToPage} />;
+    }
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen">
+      {renderPage()}
     </div>
   );
 };

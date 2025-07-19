@@ -2,41 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Fantasy Football 2024 Design System - Modern Neon Sports Theme */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Fantasy Football Theme Colors */
+    --background: 270 100% 12%;           /* #1D003D - Primary Background */
+    --foreground: 0 0% 100%;              /* #FFFFFF - Light Text */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 270 100% 12%;                 /* Dark cards same as background */
+    --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 270 100% 12%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 276 100% 59%;              /* #9B30FF - Accent Purple Glow */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 276 50% 37%;             /* #5D2D91 - Borders & Dividers */
+    --secondary-foreground: 264 100% 81%; /* #C2A3FF - Secondary Text */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 276 50% 37%;
+    --muted-foreground: 264 100% 81%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 305 83% 68%;                /* #D946EF - CTA Pink Glow */
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 276 50% 37%;
+    --input: 276 50% 37%;
+    --ring: 276 100% 59%;
 
-    --radius: 0.5rem;
+    /* Fantasy-specific design tokens */
+    --neon-purple: 276 100% 59%;          /* #9B30FF */
+    --neon-pink: 305 83% 68%;             /* #D946EF */
+    --secondary-text: 264 100% 81%;       /* #C2A3FF */
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(276 100% 8%));
+    --gradient-neon: linear-gradient(135deg, hsl(var(--neon-purple)), hsl(var(--neon-pink)));
+    --gradient-card: linear-gradient(145deg, hsl(276 100% 8%), hsl(270 100% 12%));
+    
+    /* Glows & Shadows */
+    --glow-purple: 0 0 20px hsl(var(--neon-purple) / 0.5), 0 0 40px hsl(var(--neon-purple) / 0.3);
+    --glow-pink: 0 0 20px hsl(var(--neon-pink) / 0.5), 0 0 40px hsl(var(--neon-pink) / 0.3);
+    --shadow-card: 0 8px 32px hsl(270 100% 8% / 0.8);
+    
+    /* Border radius for consistent design */
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +115,70 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    background: var(--gradient-hero);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  /* Neon Button Variants */
+  .btn-neon-primary {
+    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground font-bold px-6 py-3 rounded-xl;
+    box-shadow: var(--glow-purple);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .btn-neon-primary:hover {
+    box-shadow: var(--glow-pink);
+    transform: translateY(-2px);
+  }
+  
+  .btn-neon-outline {
+    @apply border-2 border-primary text-primary bg-transparent font-bold px-6 py-3 rounded-xl;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .btn-neon-outline:hover {
+    @apply bg-primary text-primary-foreground;
+    box-shadow: var(--glow-purple);
+  }
+
+  /* Fantasy Card Styling */
+  .fantasy-card {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+    @apply border border-secondary rounded-xl p-6;
+    backdrop-filter: blur(10px);
+  }
+  
+  /* Neon Text Effects */
+  .text-neon {
+    text-shadow: 0 0 10px hsl(var(--neon-purple) / 0.8);
+  }
+  
+  .text-hero {
+    @apply text-4xl md:text-6xl font-black tracking-tight;
+    background: var(--gradient-neon);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: var(--glow-purple);
+  }
+
+  /* Tab Navigation */
+  .tab-active {
+    @apply bg-primary text-primary-foreground;
+    box-shadow: var(--glow-purple);
+  }
+  
+  .tab-inactive {
+    @apply bg-transparent text-secondary-foreground border border-secondary;
+  }
+  
+  /* Player Avatar with Glow */
+  .avatar-glow {
+    box-shadow: 0 0 20px hsl(var(--neon-purple) / 0.4);
+    @apply ring-2 ring-primary;
   }
 }
