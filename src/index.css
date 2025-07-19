@@ -6,39 +6,39 @@
 
 @layer base {
   :root {
-    /* Core Fantasy Football Theme Colors */
-    --background: 270 100% 12%;           /* #1D003D - Primary Background */
+    /* Core Fantasy Football Theme Colors - Deeper Purple */
+    --background: 270 100% 8%;            /* Deeper Primary Background */
     --foreground: 0 0% 100%;              /* #FFFFFF - Light Text */
 
-    --card: 270 100% 12%;                 /* Dark cards same as background */
+    --card: 270 100% 8%;                  /* Deeper dark cards */
     --card-foreground: 0 0% 100%;
 
-    --popover: 270 100% 12%;
+    --popover: 270 100% 8%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 276 100% 59%;              /* #9B30FF - Accent Purple Glow */
+    --primary: 276 100% 48%;              /* Deeper Accent Purple */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 276 50% 37%;             /* #5D2D91 - Borders & Dividers */
-    --secondary-foreground: 264 100% 81%; /* #C2A3FF - Secondary Text */
+    --secondary: 276 60% 25%;             /* Deeper Borders & Dividers */
+    --secondary-foreground: 264 100% 75%; /* Slightly dimmed Secondary Text */
 
-    --muted: 276 50% 37%;
-    --muted-foreground: 264 100% 81%;
+    --muted: 276 60% 25%;
+    --muted-foreground: 264 100% 75%;
 
-    --accent: 305 83% 68%;                /* #D946EF - CTA Pink Glow */
+    --accent: 305 83% 58%;                /* Deeper Pink Glow */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 276 50% 37%;
-    --input: 276 50% 37%;
-    --ring: 276 100% 59%;
+    --border: 276 60% 25%;
+    --input: 276 60% 25%;
+    --ring: 276 100% 48%;
 
     /* Fantasy-specific design tokens */
-    --neon-purple: 276 100% 59%;          /* #9B30FF */
-    --neon-pink: 305 83% 68%;             /* #D946EF */
-    --secondary-text: 264 100% 81%;       /* #C2A3FF */
+    --neon-purple: 276 100% 48%;          /* Deeper Neon Purple */
+    --neon-pink: 305 83% 58%;             /* Deeper Pink */
+    --secondary-text: 264 100% 75%;       /* Slightly dimmed */
     
     /* Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(276 100% 8%));
