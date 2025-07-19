@@ -1,4 +1,4 @@
-import heroPlayer from "@/assets/hero-player.jpg";
+import matrixBg from "@/assets/matrix-bg.png";
 
 interface LandingPageProps {
   onNavigate: (page: string) => void;
@@ -11,8 +11,8 @@ export function LandingPage({ onNavigate }: LandingPageProps) {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ 
-          backgroundImage: `url(${heroPlayer})`,
-          filter: 'brightness(0.4)'
+          backgroundImage: `url(${matrixBg})`,
+          filter: 'brightness(0.3)'
         }}
       />
       
