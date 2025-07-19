@@ -40,8 +40,8 @@
     --neon-pink: 305 83% 58%;             /* Pink */
     --secondary-text: 264 100% 75%;       /* Dimmed text */
     
-    /* Bottom navigation bar color */
-    --bottom-nav: 240 50% 18%;            /* Right shade for bottom bar */
+    /* Bottom navigation bar color - Right shade from image */
+    --bottom-nav: 240 40% 22%;            /* Lighter purple shade for bottom bar */
     
     /* Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(276 100% 8%));
