@@ -6,39 +6,42 @@
 
 @layer base {
   :root {
-    /* Core Fantasy Football Theme Colors - Deeper Purple */
-    --background: 270 100% 8%;            /* Deeper Primary Background */
+    /* Core Fantasy Football Theme Colors - Custom Purple Shades */
+    --background: 240 60% 6%;             /* Very dark purple/navy (left shade) */
     --foreground: 0 0% 100%;              /* #FFFFFF - Light Text */
 
-    --card: 270 100% 8%;                  /* Deeper dark cards */
+    --card: 240 50% 18%;                  /* Lighter purple for cards (right shade) */
     --card-foreground: 0 0% 100%;
 
-    --popover: 270 100% 8%;
+    --popover: 240 60% 6%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 276 100% 48%;              /* Deeper Accent Purple */
+    --primary: 276 100% 48%;              /* Bright Purple Accent */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 276 60% 25%;             /* Deeper Borders & Dividers */
-    --secondary-foreground: 264 100% 75%; /* Slightly dimmed Secondary Text */
+    --secondary: 240 50% 18%;             /* Using right shade for secondary elements */
+    --secondary-foreground: 264 100% 75%;
 
-    --muted: 276 60% 25%;
+    --muted: 240 50% 18%;
     --muted-foreground: 264 100% 75%;
 
-    --accent: 305 83% 58%;                /* Deeper Pink Glow */
+    --accent: 305 83% 58%;                /* Pink Glow */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 276 60% 25%;
-    --input: 276 60% 25%;
+    --border: 240 50% 18%;
+    --input: 240 50% 18%;
     --ring: 276 100% 48%;
 
     /* Fantasy-specific design tokens */
-    --neon-purple: 276 100% 48%;          /* Deeper Neon Purple */
-    --neon-pink: 305 83% 58%;             /* Deeper Pink */
-    --secondary-text: 264 100% 75%;       /* Slightly dimmed */
+    --neon-purple: 276 100% 48%;          /* Bright Neon Purple */
+    --neon-pink: 305 83% 58%;             /* Pink */
+    --secondary-text: 264 100% 75%;       /* Dimmed text */
+    
+    /* Bottom navigation bar color */
+    --bottom-nav: 240 50% 18%;            /* Right shade for bottom bar */
     
     /* Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(276 100% 8%));

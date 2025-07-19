@@ -68,7 +68,8 @@ export default {
 				/* Fantasy-specific semantic colors */
 				'neon-purple': 'hsl(var(--neon-purple))',
 				'neon-pink': 'hsl(var(--neon-pink))',
-				'secondary-text': 'hsl(var(--secondary-text))'
+				'secondary-text': 'hsl(var(--secondary-text))',
+				'bottom-nav': 'hsl(var(--bottom-nav))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
