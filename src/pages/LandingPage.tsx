@@ -1,6 +1,7 @@
 import { useState } from "react";
 import matrixBg from "@/assets/matrix-bg.png";
 import { SleeperLeagueModal } from "@/components/SleeperLeagueModal";
+import { RosterPreview, mockRosterData } from "@/components/RosterPreview";
 
 interface LandingPageProps {
   onNavigate: (page: string) => void;
@@ -67,6 +68,11 @@ export function LandingPage({ onNavigate }: LandingPageProps) {
             <p className="text-sm">📊 Advanced analytics</p>
           </div>
         </div>
+      </div>
+
+      {/* Roster Preview Section */}
+      <div className="relative z-10 py-16">
+        <RosterPreview rosters_json={mockRosterData} />
       </div>
 
       {/* Sleeper League Modal */}

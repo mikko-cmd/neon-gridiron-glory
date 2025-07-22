@@ -184,4 +184,33 @@
     box-shadow: 0 0 20px hsl(var(--neon-purple) / 0.4);
     @apply ring-2 ring-primary;
   }
+
+  /* Cyber Card Component */
+  .cyber-card {
+    @apply relative bg-card/80 backdrop-blur-sm border border-border/30 rounded-xl p-6;
+    @apply transition-all duration-300 hover:border-primary/50;
+    background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--card)/0.8) 100%);
+    box-shadow: 
+      0 4px 20px -4px hsl(var(--primary)/0.1),
+      inset 0 1px 0 hsl(var(--border)/0.2);
+  }
+
+  .cyber-card:hover {
+    box-shadow: 
+      0 8px 32px -8px hsl(var(--primary)/0.3),
+      0 0 20px -5px hsl(var(--primary)/0.2),
+      inset 0 1px 0 hsl(var(--border)/0.3);
+    transform: translateY(-2px);
+  }
+
+  /* Neon Text Component */
+  .neon-text {
+    text-shadow: 0 0 10px hsl(var(--primary)/0.6), 0 0 20px hsl(var(--primary)/0.4);
+  }
+
+  /* Neon Button Outline Variant */
+  .neon-button-outline {
+    @apply border-primary/50 text-primary hover:border-primary hover:bg-primary/10;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 }
