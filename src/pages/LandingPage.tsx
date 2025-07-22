@@ -1,10 +1,14 @@
+import { useState } from "react";
 import matrixBg from "@/assets/matrix-bg.png";
+import { SleeperLeagueModal } from "@/components/SleeperLeagueModal";
 
 interface LandingPageProps {
   onNavigate: (page: string) => void;
 }
 
 export function LandingPage({ onNavigate }: LandingPageProps) {
+  const [isSleeperModalOpen, setIsSleeperModalOpen] = useState(false);
+
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Hero Background */}
@@ -36,6 +40,13 @@ export function LandingPage({ onNavigate }: LandingPageProps) {
           <div className="space-y-4 pt-8">
             <button 
               className="btn-neon-primary w-full max-w-sm"
+              onClick={() => setIsSleeperModalOpen(true)}
+            >
+              Connect Your Sleeper League
+            </button>
+            
+            <button 
+              className="btn-neon-primary w-full max-w-sm"
               onClick={() => onNavigate('players')}
             >
               Sign Up & Draft
@@ -57,6 +68,12 @@ export function LandingPage({ onNavigate }: LandingPageProps) {
           </div>
         </div>
       </div>
+
+      {/* Sleeper League Modal */}
+      <SleeperLeagueModal 
+        isOpen={isSleeperModalOpen} 
+        onClose={() => setIsSleeperModalOpen(false)} 
+      />
     </div>
   );
 }
