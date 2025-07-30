@@ -1,0 +1,216 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fantasy Football 2024 Design System - Modern Neon Sports Theme */
+
+@layer base {
+  :root {
+    /* Core Fantasy Football Theme Colors - Custom Purple Shades */
+    --background: 240 60% 6%;             /* Very dark purple/navy (left shade) */
+    --foreground: 0 0% 100%;              /* #FFFFFF - Light Text */
+
+    --card: 240 50% 18%;                  /* Lighter purple for cards (right shade) */
+    --card-foreground: 0 0% 100%;
+
+    --popover: 240 60% 6%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 276 100% 48%;              /* Bright Purple Accent */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 50% 18%;             /* Using right shade for secondary elements */
+    --secondary-foreground: 264 100% 75%;
+
+    --muted: 240 50% 18%;
+    --muted-foreground: 264 100% 75%;
+
+    --accent: 305 83% 58%;                /* Pink Glow */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 50% 18%;
+    --input: 240 50% 18%;
+    --ring: 276 100% 48%;
+
+    /* Fantasy-specific design tokens */
+    --neon-purple: 276 100% 48%;          /* Bright Neon Purple */
+    --neon-pink: 305 83% 58%;             /* Pink */
+    --secondary-text: 264 100% 75%;       /* Dimmed text */
+    
+    /* Bottom navigation bar color - Right shade from image */
+    --bottom-nav: 240 40% 22%;            /* Lighter purple shade for bottom bar */
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(276 100% 8%));
+    --gradient-neon: linear-gradient(135deg, hsl(var(--neon-purple)), hsl(var(--neon-pink)));
+    --gradient-card: linear-gradient(145deg, hsl(276 100% 8%), hsl(270 100% 12%));
+    
+    /* Glows & Shadows */
+    --glow-purple: 0 0 20px hsl(var(--neon-purple) / 0.5), 0 0 40px hsl(var(--neon-purple) / 0.3);
+    --glow-pink: 0 0 20px hsl(var(--neon-pink) / 0.5), 0 0 40px hsl(var(--neon-pink) / 0.3);
+    --shadow-card: 0 8px 32px hsl(270 100% 8% / 0.8);
+    
+    /* Border radius for consistent design */
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background: var(--gradient-hero);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  /* Neon Button Variants */
+  .btn-neon-primary {
+    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground font-bold px-6 py-3 rounded-xl;
+    box-shadow: var(--glow-purple);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .btn-neon-primary:hover {
+    box-shadow: var(--glow-pink);
+    transform: translateY(-2px);
+  }
+  
+  .btn-neon-outline {
+    @apply border-2 border-primary text-primary bg-transparent font-bold px-6 py-3 rounded-xl;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .btn-neon-outline:hover {
+    @apply bg-primary text-primary-foreground;
+    box-shadow: var(--glow-purple);
+  }
+
+  /* Fantasy Card Styling */
+  .fantasy-card {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+    @apply border border-secondary rounded-xl p-6;
+    backdrop-filter: blur(10px);
+  }
+  
+  /* Neon Text Effects */
+  .text-neon {
+    text-shadow: 0 0 10px hsl(var(--neon-purple) / 0.8);
+  }
+  
+  .text-hero {
+    @apply text-4xl md:text-6xl font-black tracking-tight;
+    background: var(--gradient-neon);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: var(--glow-purple);
+  }
+
+  /* Tab Navigation */
+  .tab-active {
+    @apply bg-primary text-primary-foreground;
+    box-shadow: var(--glow-purple);
+  }
+  
+  .tab-inactive {
+    @apply bg-transparent text-secondary-foreground border border-secondary;
+  }
+  
+  /* Player Avatar with Glow */
+  .avatar-glow {
+    box-shadow: 0 0 20px hsl(var(--neon-purple) / 0.4);
+    @apply ring-2 ring-primary;
+  }
+
+  /* Cyber Card Component */
+  .cyber-card {
+    @apply relative bg-card/80 backdrop-blur-sm border border-border/30 rounded-xl p-6;
+    @apply transition-all duration-300 hover:border-primary/50;
+    background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--card)/0.8) 100%);
+    box-shadow: 
+      0 4px 20px -4px hsl(var(--primary)/0.1),
+      inset 0 1px 0 hsl(var(--border)/0.2);
+  }
+
+  .cyber-card:hover {
+    box-shadow: 
+      0 8px 32px -8px hsl(var(--primary)/0.3),
+      0 0 20px -5px hsl(var(--primary)/0.2),
+      inset 0 1px 0 hsl(var(--border)/0.3);
+    transform: translateY(-2px);
+  }
+
+  /* Neon Text Component */
+  .neon-text {
+    text-shadow: 0 0 10px hsl(var(--primary)/0.6), 0 0 20px hsl(var(--primary)/0.4);
+  }
+
+  /* Neon Button Outline Variant */
+  .neon-button-outline {
+    @apply border-primary/50 text-primary hover:border-primary hover:bg-primary/10;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
