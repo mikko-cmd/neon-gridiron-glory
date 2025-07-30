@@ -72,7 +72,16 @@ export const RosterPreviewCard: React.FC<RosterPreviewCardProps> = ({
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="cyber-card group max-w-2xl mx-auto">
+    <div className="relative bg-gradient-to-br from-purple-950 to-purple-900 border border-purple-700/30 rounded-lg p-6 shadow-2xl shadow-purple-900/20 group max-w-2xl mx-auto overflow-hidden">
+      {/* Background Numbers */}
+      <div className="absolute inset-0 pointer-events-none opacity-10">
+        <div className="absolute top-4 right-4 text-6xl font-bold text-purple-300">1</div>
+        <div className="absolute top-16 left-8 text-4xl font-bold text-purple-400">7</div>
+        <div className="absolute bottom-20 right-12 text-5xl font-bold text-purple-300">3</div>
+        <div className="absolute bottom-8 left-6 text-3xl font-bold text-purple-400">9</div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-8xl font-bold text-purple-200/5">FF</div>
+      </div>
+      
       {/* Header */}
       <div className="text-center mb-6">
         <h3 className="text-2xl font-bold text-foreground neon-text">
