@@ -18,10 +18,10 @@ interface SyncLeaguePayload {
 export async function syncLeagueAndRoster(payload: SyncLeaguePayload) {
   // Use an environment variable for the API base URL.
   // Fallback to a relative path for same-project deployments.
-  const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '';
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   // Step 1: Connect the league to create the initial record in the database.
-  const connectRes = await fetch(`${apiBaseUrl}/api/sync-league`, {
+  const connectRes = await fetch(`${API_BASE_URL}/api/sync-league`, {
     method: 'POST',
     body: JSON.stringify(payload),
     headers: { 'Content-Type': 'application/json' },
@@ -36,7 +36,7 @@ export async function syncLeagueAndRoster(payload: SyncLeaguePayload) {
   const { sleeper_league_id, user_email } = connectResult.data;
   
   // Step 2: Immediately sync the roster for the newly connected league.
-  const rosterRes = await fetch(`${apiBaseUrl}/api/rosters/sync`, {
+  const rosterRes = await fetch(`${API_BASE_URL}/api/rosters/sync`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -53,4 +53,36 @@ export async function syncLeagueAndRoster(payload: SyncLeaguePayload) {
   
   // The final, fully synced data is returned by the second API call.
   return rosterResult.data;
+} 
+
+interface SyncRosterParams {
+  sleeper_league_id: string;
+  sleeper_username: string;
+  user_email: string;
+}
+
+export async function syncRoster({
+  sleeper_league_id,
+  sleeper_username,
+  user_email,
+}: SyncRosterParams) {
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  const res = await fetch(`${API_BASE_URL}/api/rosters/sync`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      sleeper_league_id,
+      sleeper_username,
+      user_email,
+    }),
+  });
+
+  if (!res.ok) {
+    const errorData = await res.json();
+    throw new Error(errorData.message || 'Failed to sync roster');
+  }
+
+  return res.json();
 } 

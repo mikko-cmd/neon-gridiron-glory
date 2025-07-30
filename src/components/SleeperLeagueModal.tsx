@@ -114,3 +114,10 @@ export function SleeperLeagueModal({ isOpen, onClose }: SleeperLeagueModalProps)
     </Dialog>
   );
 }
+            </Button>
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
